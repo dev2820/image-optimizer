@@ -1,5 +1,5 @@
 import { Download, Settings as SettingsIcon } from 'lucide-react'
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
 import { ImageList } from '@/components/ImageList'
 import { ImageUploader } from '@/components/ImageUploader'
@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/drawer'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { DEFAULT_SETTINGS } from '@/constants'
-import { processImage } from '@/lib/image-processor'
+import { useImageQueue } from '@/hooks/useImageQueue'
 import type { ImageEntry, Settings } from '@/types'
 import { downloadAllAsZip } from '@/utils/download'
 
@@ -27,12 +27,21 @@ function App() {
   const [previewImage, setPreviewImage] = useState<ImageEntry | null>(null)
   const [settingsOpen, setSettingsOpen] = useState(false)
 
-  const processAndAddImage = useCallback(
-    async (file: File, format: Settings['format'], quality: number) => {
-      const id = `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
+  const settingsRef = useRef<Settings>(settings)
+  settingsRef.current = settings
 
-      const entry: ImageEntry = {
-        id,
+  const imagesRef = useRef<ImageEntry[]>(images)
+  imagesRef.current = images
+
+  const { enqueue, clearQueue, removeFromQueue } = useImageQueue(
+    setImages,
+    settingsRef,
+  )
+
+  const handleUpload = useCallback(
+    (files: File[]) => {
+      const entries: ImageEntry[] = files.map((file) => ({
+        id: `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`,
         file,
         originalName: file.name,
         originalSize: file.size,
@@ -41,109 +50,54 @@ function App() {
         originalHeight: 0,
         optimizedBuffer: null,
         optimizedSize: null,
-        optimizedFormat: format,
-        optimizedQuality: quality,
-        status: 'processing',
+        optimizedFormat: settingsRef.current.format,
+        optimizedQuality: settingsRef.current.quality,
+        status: 'queued' as const,
         createdAt: Date.now(),
-      }
+      }))
 
-      setImages((prev) => [entry, ...prev])
-
-      try {
-        const result = await processImage(file, format, quality)
-        setImages((prev) =>
-          prev.map((img) =>
-            img.id === id
-              ? {
-                  ...img,
-                  originalWidth: result.width,
-                  originalHeight: result.height,
-                  optimizedBuffer: result.buffer,
-                  optimizedSize: result.buffer.byteLength,
-                  status: 'done' as const,
-                }
-              : img,
-          ),
-        )
-      } catch (err) {
-        setImages((prev) =>
-          prev.map((img) =>
-            img.id === id
-              ? {
-                  ...img,
-                  status: 'error' as const,
-                  error:
-                    err instanceof Error ? err.message : 'Processing failed',
-                }
-              : img,
-          ),
-        )
-      }
+      setImages((prev) => [...entries.reverse(), ...prev])
+      enqueue(entries.map((e) => ({ id: e.id, file: e.file })))
     },
-    [],
-  )
-
-  const handleUpload = useCallback(
-    (files: File[]) => {
-      for (const file of files) {
-        processAndAddImage(file, settings.format, settings.quality)
-      }
-    },
-    [processAndAddImage, settings],
+    [enqueue],
   )
 
   const handleSettingsChange = useCallback(
     (newSettings: Settings) => {
       setSettings(newSettings)
+      settingsRef.current = newSettings
 
-      const doneImages = images.filter((img) => img.status === 'done')
-      for (const img of doneImages) {
-        setImages((prev) =>
-          prev.map((i) =>
-            i.id === img.id ? { ...i, status: 'processing' as const } : i,
-          ),
-        )
-        processImage(img.file, newSettings.format, newSettings.quality)
-          .then((result) => {
-            setImages((prev) =>
-              prev.map((i) =>
-                i.id === img.id
-                  ? {
-                      ...i,
-                      optimizedBuffer: result.buffer,
-                      optimizedSize: result.buffer.byteLength,
-                      optimizedFormat: newSettings.format,
-                      optimizedQuality: newSettings.quality,
-                      status: 'done' as const,
-                    }
-                  : i,
-              ),
-            )
-          })
-          .catch((err) => {
-            setImages((prev) =>
-              prev.map((i) =>
-                i.id === img.id
-                  ? {
-                      ...i,
-                      status: 'error' as const,
-                      error:
-                        err instanceof Error
-                          ? err.message
-                          : 'Re-processing failed',
-                    }
-                  : i,
-              ),
-            )
-          })
-      }
+      clearQueue()
+
+      const toReprocess = imagesRef.current.filter(
+        (img) =>
+          img.status === 'done' ||
+          img.status === 'queued' ||
+          img.status === 'processing',
+      )
+
+      if (toReprocess.length === 0) return
+
+      setImages((prev) =>
+        prev.map((img) =>
+          toReprocess.some((r) => r.id === img.id)
+            ? { ...img, status: 'queued' as const }
+            : img,
+        ),
+      )
+
+      enqueue(toReprocess.map((img) => ({ id: img.id, file: img.file })))
     },
-    [images],
+    [clearQueue, enqueue],
   )
 
-  const handleDelete = useCallback((id: string) => {
-    setImages((prev) => prev.filter((img) => img.id !== id))
-  }, [])
+  const handleDelete = useCallback(
+    (id: string) => {
+      removeFromQueue(id)
+      setImages((prev) => prev.filter((img) => img.id !== id))
+    },
+    [removeFromQueue],
+  )
 
   const handlePreview = useCallback((image: ImageEntry) => {
     setPreviewImage(image)

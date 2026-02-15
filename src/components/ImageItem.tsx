@@ -86,6 +86,12 @@ export function ImageItem({ image, onPreview, onDelete }: ImageItemProps) {
 
       {/* Action buttons - desktop */}
       <div className="hidden shrink-0 items-center gap-1 @lg:flex">
+        {image.status === 'queued' && (
+          <Badge variant="outline" className="text-xs text-muted-foreground">
+            Queued
+          </Badge>
+        )}
+
         {image.status === 'processing' && (
           <Spinner className="text-muted-foreground h-5 w-5" />
         )}
@@ -132,6 +138,9 @@ export function ImageItem({ image, onPreview, onDelete }: ImageItemProps) {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
+            {image.status === 'queued' && (
+              <DropdownMenuItem disabled>Queued</DropdownMenuItem>
+            )}
             {image.status === 'done' && (
               <>
                 <DropdownMenuItem onClick={() => onPreview(image)}>

@@ -17,7 +17,7 @@ export interface ImageEntry {
   optimizedSize: number | null
   optimizedFormat: OutputFormat
   optimizedQuality: number
-  status: 'processing' | 'done' | 'error'
+  status: 'queued' | 'processing' | 'done' | 'error'
   error?: string
   createdAt: number
 }
