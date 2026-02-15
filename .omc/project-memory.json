@@ -103,6 +103,12 @@
   },
   "hotPaths": [
     {
+      "path": "eslint.config.js",
+      "accessCount": 4,
+      "lastAccessed": 1771122810728,
+      "type": "file"
+    },
+    {
       "path": "",
       "accessCount": 3,
       "lastAccessed": 1771120537730,
@@ -115,15 +121,21 @@
       "type": "file"
     },
     {
+      "path": "src/lib/image-processor.ts",
+      "accessCount": 3,
+      "lastAccessed": 1771123054972,
+      "type": "file"
+    },
+    {
       "path": "tsconfig.app.json",
       "accessCount": 2,
       "lastAccessed": 1771120529767,
       "type": "file"
     },
     {
-      "path": "eslint.config.js",
+      "path": "src/App.tsx",
       "accessCount": 2,
-      "lastAccessed": 1771120628924,
+      "lastAccessed": 1771123149276,
       "type": "file"
     },
     {
@@ -148,6 +160,72 @@
       "path": ".prettierignore",
       "accessCount": 1,
       "lastAccessed": 1771120630929,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/download.ts",
+      "accessCount": 1,
+      "lastAccessed": 1771122474916,
+      "type": "file"
+    },
+    {
+      "path": "src/constants/index.ts",
+      "accessCount": 1,
+      "lastAccessed": 1771122610970,
+      "type": "file"
+    },
+    {
+      "path": "src/utils/download.ts",
+      "accessCount": 1,
+      "lastAccessed": 1771122653567,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ImageUploader.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771122669920,
+      "type": "file"
+    },
+    {
+      "path": "src/components/SettingsPanel.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771122676477,
+      "type": "file"
+    },
+    {
+      "path": "src/components/DownloadButton.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771122684071,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ImageItem.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771122743852,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ImageList.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771122744993,
+      "type": "file"
+    },
+    {
+      "path": "src/components/BeforeAfterSlider.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771122746215,
+      "type": "file"
+    },
+    {
+      "path": "src/components/DevicePreview.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771123068537,
+      "type": "file"
+    },
+    {
+      "path": "src/components/PreviewModal.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771123098064,
       "type": "file"
     }
   ],
