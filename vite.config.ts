@@ -11,4 +11,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  optimizeDeps: {
+    exclude: [
+      "@jsquash/webp",
+      "@jsquash/avif",
+      "@jsquash/png",
+      "@jsquash/jpeg",
+      "@jsquash/resize",
+    ],
+  },
 });
