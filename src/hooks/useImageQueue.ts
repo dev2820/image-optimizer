@@ -4,7 +4,7 @@ import type {
   WorkerRequest,
   WorkerResponse,
 } from '@/lib/image-processor.worker'
-import type { ImageEntry, Settings } from '@/types'
+import type { ImageEntry, OutputFormat, Settings } from '@/types'
 
 interface QueueItem {
   id: string
@@ -31,7 +31,7 @@ export function useImageQueue(
   }, [])
 
   const processInWorker = useCallback(
-    (arrayBuffer: ArrayBuffer, mimeType: string, format: string, quality: number, id: string) => {
+    (arrayBuffer: ArrayBuffer, mimeType: string, format: OutputFormat, quality: number, id: string) => {
       return new Promise<{ buffer: ArrayBuffer; width: number; height: number }>(
         (resolve, reject) => {
           const worker = workerRef.current
