@@ -103,15 +103,51 @@
   },
   "hotPaths": [
     {
+      "path": "",
+      "accessCount": 3,
+      "lastAccessed": 1771120537730,
+      "type": "directory"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 3,
+      "lastAccessed": 1771120638430,
+      "type": "file"
+    },
+    {
+      "path": "tsconfig.app.json",
+      "accessCount": 2,
+      "lastAccessed": 1771120529767,
+      "type": "file"
+    },
+    {
+      "path": "eslint.config.js",
+      "accessCount": 2,
+      "lastAccessed": 1771120628924,
+      "type": "file"
+    },
+    {
       "path": "vite.config.ts",
       "accessCount": 1,
       "lastAccessed": 1771120196649,
       "type": "file"
     },
     {
-      "path": "tsconfig.app.json",
+      "path": "tsconfig.json",
       "accessCount": 1,
-      "lastAccessed": 1771120197140,
+      "lastAccessed": 1771120529323,
+      "type": "file"
+    },
+    {
+      "path": ".prettierrc",
+      "accessCount": 1,
+      "lastAccessed": 1771120630603,
+      "type": "file"
+    },
+    {
+      "path": ".prettierignore",
+      "accessCount": 1,
+      "lastAccessed": 1771120630929,
       "type": "file"
     }
   ],

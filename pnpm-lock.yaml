@@ -55,15 +55,24 @@ devDependencies:
   eslint:
     specifier: ^9.39.1
     version: 9.39.2
+  eslint-config-prettier:
+    specifier: ^10.1.8
+    version: 10.1.8(eslint@9.39.2)
   eslint-plugin-react-hooks:
     specifier: ^7.0.1
     version: 7.0.1(eslint@9.39.2)
   eslint-plugin-react-refresh:
     specifier: ^0.4.24
     version: 0.4.26(eslint@9.39.2)
+  eslint-plugin-simple-import-sort:
+    specifier: ^12.1.1
+    version: 12.1.1(eslint@9.39.2)
   globals:
     specifier: ^16.5.0
     version: 16.5.0
+  prettier:
+    specifier: ^3.8.1
+    version: 3.8.1
   shadcn:
     specifier: ^3.8.4
     version: 3.8.4(@types/node@24.10.13)(typescript@5.9.3)
@@ -3201,6 +3210,15 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /eslint-config-prettier@10.1.8(eslint@9.39.2):
+    resolution: {integrity: sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dependencies:
+      eslint: 9.39.2
+    dev: true
+
   /eslint-plugin-react-hooks@7.0.1(eslint@9.39.2):
     resolution: {integrity: sha512-O0d0m04evaNzEPoSW+59Mezf8Qt0InfgGIBJnpC0h3NH/WjUAR7BIKUfysC6todmtiZ/A0oUVS8Gce0WhBrHsA==}
     engines: {node: '>=18'}
@@ -3221,6 +3239,14 @@ packages:
     resolution: {integrity: sha512-1RETEylht2O6FM/MvgnyvT+8K21wLqDNg4qD51Zj3guhjt433XbnnkVttHMyaVyAFD03QSV4LPS5iE3VQmO7XQ==}
     peerDependencies:
       eslint: '>=8.40'
+    dependencies:
+      eslint: 9.39.2
+    dev: true
+
+  /eslint-plugin-simple-import-sort@12.1.1(eslint@9.39.2):
+    resolution: {integrity: sha512-6nuzu4xwQtE3332Uz0to+TxDQYRLTKRESSc2hefVT48Zc8JthmN23Gx9lnYhu0FtkRSL1oxny3kJ2aveVhmOVA==}
+    peerDependencies:
+      eslint: '>=5.0.0'
     dependencies:
       eslint: 9.39.2
     dev: true
@@ -4626,6 +4652,12 @@ packages:
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier@3.8.1:
+    resolution: {integrity: sha512-UOnG6LftzbdaHZcKoPFtOcCKztrQ57WkHDeRD9t/PTQtmT0NHSeWWepj6pS0z/N7+08BHFDQVUrfmfMRcZwbMg==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /pretty-ms@9.3.0:
