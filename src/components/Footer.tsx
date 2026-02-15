@@ -1,11 +1,4 @@
-import {
-  FileDown,
-  Globe,
-  Images,
-  Lock,
-  MonitorSmartphone,
-  SlidersHorizontal,
-} from 'lucide-react'
+import { FileDown, Lock, SlidersHorizontal } from 'lucide-react'
 
 import { Button } from './ui/button'
 import { Separator } from './ui/separator'
@@ -27,16 +20,14 @@ export function Footer() {
 
 const AppDescription = () => {
   return (
-    <div className="flex flex-col gap-2 text-center">
+    <div className="flex flex-col gap-2 text-center mb-10">
       <h2 className="mt-16 text-5xl font-semibold text-foreground">
         Image Optimizer
       </h2>
       <p className="text-xl mt-8 text-foreground/80">
-        Free browser-based image compression and conversion tool for bloggers,
-        content creators, and web SEO practitioners. Optimize unlimited images
-        to WebP, AVIF, JPEG, and PNG formats instantly — no upload limits, no
-        servers, no sign-up required. Reduce image file sizes for faster page
-        loads, better search rankings, and improved Core Web Vitals.
+        Free browser-based image compression tool for bloggers, content
+        creators, and web SEO practitioners. Optimize unlimited images to WebP,
+        AVIF, JPEG, and PNG — no upload limits, no servers, no sign-up required.
       </p>
     </div>
   )
@@ -44,23 +35,13 @@ const AppDescription = () => {
 
 const FEATURES = [
   {
-    icon: Images,
-    title: 'Batch Processing',
-    description: 'Convert multiple images at once',
-  },
-  {
     icon: SlidersHorizontal,
     title: 'Quality Control',
     description: 'Adjust compression to your needs',
   },
   {
-    icon: MonitorSmartphone,
-    title: 'Before/After Preview',
-    description: 'Compare results side by side',
-  },
-  {
     icon: FileDown,
-    title: 'ZIP Download',
+    title: 'Download',
     description: 'Download all images in one click',
   },
   {
@@ -68,24 +49,24 @@ const FEATURES = [
     title: 'Fully Private',
     description: 'Files never leave your browser',
   },
-  {
-    icon: Globe,
-    title: 'WebAssembly Powered',
-    description: 'Fast processing with no installation',
-  },
 ] as const
 
 const FeatureHighlights = () => {
   return (
-    <ul className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3">
+    <ul className="my-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
       {FEATURES.map(({ icon: Icon, title, description }) => (
-        <li key={title} className="flex items-start gap-2">
-          <Icon className="mt-0.5 h-4 w-4 shrink-0 text-foreground/60" />
-          <div>
-            <span className="text-xs font-medium text-foreground/80">
+        <li
+          key={title}
+          className="flex flex-col items-center gap-3 rounded-xl border bg-muted/40 px-4 py-6 text-center"
+        >
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-foreground/10">
+            <Icon className="h-7 w-7 text-foreground" />
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className="text-xl font-semibold text-foreground">
               {title}
             </span>
-            <p className="text-xs">{description}</p>
+            <p className="text-base text-muted-foreground">{description}</p>
           </div>
         </li>
       ))}
@@ -95,7 +76,7 @@ const FeatureHighlights = () => {
 
 const TargetAudience = () => {
   return (
-    <p className="max-w-2xl text-center text-xs">
+    <p className="max-w-2xl text-center text-base text-muted-foreground">
       Built for web developers, designers, bloggers, and anyone who needs
       optimized images. Improve your website's Core Web Vitals, reduce bandwidth
       costs, and deliver faster page loads with properly compressed images.
