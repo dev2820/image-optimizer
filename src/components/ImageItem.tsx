@@ -3,7 +3,6 @@ import { useMemo } from 'react'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import type { ImageEntry } from '@/types'
 import { formatFileSize } from '@/utils/format'
 
@@ -27,7 +26,7 @@ export function ImageItem({ image, onPreview, onDelete }: ImageItemProps) {
       : null
 
   return (
-    <Card className="flex items-center gap-4 p-3">
+    <div className="flex items-center gap-4 rounded-lg border p-3">
       <div className="h-16 w-16 shrink-0 overflow-hidden rounded-md bg-muted">
         <img
           src={thumbnailUrl}
@@ -38,20 +37,23 @@ export function ImageItem({ image, onPreview, onDelete }: ImageItemProps) {
 
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-medium">{image.originalName}</p>
-        <div className="mt-1 flex flex-wrap items-center gap-2">
+        <div className="mt-0.5 flex items-center gap-2">
           <Badge variant="secondary" className="text-xs">
             {image.originalFormat.replace('image/', '').toUpperCase()}
           </Badge>
           <span className="text-muted-foreground text-xs">
             {image.originalWidth} x {image.originalHeight}
           </span>
-          <span className="text-muted-foreground text-xs">
-            {formatFileSize(image.originalSize)}
-          </span>
         </div>
+      </div>
 
+      <div className="flex shrink-0 items-center gap-1.5">
+        <span className="text-muted-foreground text-xs">
+          {formatFileSize(image.originalSize)}
+        </span>
         {image.status === 'done' && image.optimizedSize !== null && (
-          <div className="mt-1 flex items-center gap-2">
+          <>
+            <span className="text-muted-foreground text-xs">&rarr;</span>
             <span className="text-xs text-green-600">
               {formatFileSize(image.optimizedSize)}
             </span>
@@ -63,13 +65,13 @@ export function ImageItem({ image, onPreview, onDelete }: ImageItemProps) {
                 -{savings}%
               </Badge>
             )}
-          </div>
-        )}
-
-        {image.status === 'error' && (
-          <p className="mt-1 text-xs text-red-500">{image.error}</p>
+          </>
         )}
       </div>
+
+      {image.status === 'error' && (
+        <span className="shrink-0 text-xs text-red-500">{image.error}</span>
+      )}
 
       <div className="flex shrink-0 items-center gap-1">
         {image.status === 'processing' && (
@@ -94,6 +96,6 @@ export function ImageItem({ image, onPreview, onDelete }: ImageItemProps) {
           <Trash2 className="h-3.5 w-3.5" />
         </Button>
       </div>
-    </Card>
+    </div>
   )
 }
