@@ -1,4 +1,4 @@
-import { Download } from 'lucide-react'
+import { Download, Settings as SettingsIcon } from 'lucide-react'
 import { useCallback, useState } from 'react'
 
 import { ImageList } from '@/components/ImageList'
@@ -6,6 +6,12 @@ import { ImageUploader } from '@/components/ImageUploader'
 import { PreviewModal } from '@/components/PreviewModal'
 import { SettingsPanel } from '@/components/SettingsPanel'
 import { Button } from '@/components/ui/button'
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+} from '@/components/ui/drawer'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { DEFAULT_SETTINGS } from '@/constants'
 import { processImage } from '@/lib/image-processor'
@@ -19,6 +25,7 @@ function App() {
   const [images, setImages] = useState<ImageEntry[]>([])
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS)
   const [previewImage, setPreviewImage] = useState<ImageEntry | null>(null)
+  const [settingsOpen, setSettingsOpen] = useState(false)
 
   const processAndAddImage = useCallback(
     async (file: File, format: Settings['format'], quality: number) => {
@@ -167,14 +174,14 @@ function App() {
               />
             </div>
           </main>
-          <aside className="flex-none w-72 border-l p-6">
+          <aside className="hidden md:block flex-none w-72 border-l p-6">
             <SettingsPanel
               settings={settings}
               onSettingsChange={handleSettingsChange}
             />
           </aside>
         </div>
-        <div className="flex-none flex items-center justify-center px-6 py-4 border-t">
+        <div className="flex-none flex items-center justify-center gap-3 px-6 py-4 border-t">
           <Button
             onClick={handleDownloadAll}
             disabled={doneCount === 0}
@@ -183,6 +190,15 @@ function App() {
             <Download className="mr-2 h-4 w-4" />
             Download All as ZIP ({doneCount} images)
           </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="md:hidden"
+            onClick={() => setSettingsOpen(true)}
+          >
+            <SettingsIcon className="mr-2 h-4 w-4" />
+            Settings
+          </Button>
         </div>
       </div>
       <PreviewModal
@@ -190,6 +206,22 @@ function App() {
         open={previewImage !== null}
         onClose={handleClosePreview}
       />
+      <Drawer open={settingsOpen} onOpenChange={setSettingsOpen}>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Settings</DrawerTitle>
+          </DrawerHeader>
+          <div className="px-4 pb-6">
+            <SettingsPanel
+              settings={settings}
+              onSettingsChange={(newSettings) => {
+                handleSettingsChange(newSettings)
+                setSettingsOpen(false)
+              }}
+            />
+          </div>
+        </DrawerContent>
+      </Drawer>
       <Footer />
     </TooltipProvider>
   )

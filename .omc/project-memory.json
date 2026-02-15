@@ -122,8 +122,8 @@
     },
     {
       "path": "src/App.tsx",
-      "accessCount": 7,
-      "lastAccessed": 1771127239482,
+      "accessCount": 12,
+      "lastAccessed": 1771146482874,
       "type": "file"
     },
     {
@@ -131,6 +131,12 @@
       "accessCount": 5,
       "lastAccessed": 1771127380199,
       "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 5,
+      "lastAccessed": 1771146436805,
+      "type": "directory"
     },
     {
       "path": "eslint.config.js",
@@ -149,12 +155,6 @@
       "accessCount": 4,
       "lastAccessed": 1771145783171,
       "type": "file"
-    },
-    {
-      "path": "",
-      "accessCount": 3,
-      "lastAccessed": 1771120537730,
-      "type": "directory"
     },
     {
       "path": "package.json",
