@@ -10,8 +10,7 @@ export function Header() {
           <a href="https://squoosh.app/" target="_blank">
             Squoosh
           </a>
-        </Button>{' '}
-        WASM
+        </Button>
       </p>
     </header>
   )

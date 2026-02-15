@@ -82,7 +82,7 @@ export function SettingsPanel({
       </div>
 
       <Button onClick={handleApply} disabled={!hasChanges} className="w-full">
-        적용하기
+        Apply
       </Button>
     </div>
   )

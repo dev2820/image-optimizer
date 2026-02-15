@@ -188,7 +188,7 @@ function App() {
             size="lg"
           >
             <Download className="mr-2 h-4 w-4" />
-            Download All as ZIP ({doneCount} images)
+            Download All ({doneCount} images)
           </Button>
           <Button
             variant="outline"

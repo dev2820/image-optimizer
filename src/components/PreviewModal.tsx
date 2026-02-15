@@ -71,7 +71,7 @@ export function PreviewModal({ image, open, onClose }: PreviewModalProps) {
             optimizedUrl={optimizedUrl}
           />
         </div>
-        <DialogFooter>
+        <DialogFooter className="flex-row-reverse">
           <DownloadButton image={image} />
         </DialogFooter>
       </DialogContent>
