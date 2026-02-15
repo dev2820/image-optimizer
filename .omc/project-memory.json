@@ -104,26 +104,26 @@
   "hotPaths": [
     {
       "path": "src/components/ImageItem.tsx",
-      "accessCount": 45,
-      "lastAccessed": 1771149652942,
+      "accessCount": 46,
+      "lastAccessed": 1771151428625,
       "type": "file"
     },
     {
       "path": "src/components/Footer.tsx",
-      "accessCount": 23,
-      "lastAccessed": 1771151197369,
+      "accessCount": 24,
+      "lastAccessed": 1771151431432,
       "type": "file"
     },
     {
       "path": "src/App.tsx",
-      "accessCount": 20,
-      "lastAccessed": 1771150167709,
+      "accessCount": 21,
+      "lastAccessed": 1771151415518,
       "type": "file"
     },
     {
       "path": "src/components/PreviewModal.tsx",
-      "accessCount": 18,
-      "lastAccessed": 1771149112976,
+      "accessCount": 19,
+      "lastAccessed": 1771151430914,
       "type": "file"
     },
     {
@@ -133,21 +133,39 @@
       "type": "file"
     },
     {
-      "path": "",
-      "accessCount": 9,
-      "lastAccessed": 1771150595664,
-      "type": "directory"
-    },
-    {
       "path": "src/lib/image-processor.ts",
-      "accessCount": 9,
-      "lastAccessed": 1771150617435,
+      "accessCount": 11,
+      "lastAccessed": 1771151464224,
       "type": "file"
     },
     {
+      "path": "",
+      "accessCount": 10,
+      "lastAccessed": 1771151459312,
+      "type": "directory"
+    },
+    {
       "path": "src/components/SettingsPanel.tsx",
+      "accessCount": 8,
+      "lastAccessed": 1771151429038,
+      "type": "file"
+    },
+    {
+      "path": "src/types/index.ts",
+      "accessCount": 8,
+      "lastAccessed": 1771151463101,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
       "accessCount": 7,
-      "lastAccessed": 1771150634832,
+      "lastAccessed": 1771151412186,
+      "type": "file"
+    },
+    {
+      "path": "src/hooks/useImageQueue.ts",
+      "accessCount": 7,
+      "lastAccessed": 1771151425654,
       "type": "file"
     },
     {
@@ -157,21 +175,9 @@
       "type": "file"
     },
     {
-      "path": "package.json",
+      "path": "src/utils/download.ts",
       "accessCount": 6,
-      "lastAccessed": 1771149909777,
-      "type": "file"
-    },
-    {
-      "path": "src/types/index.ts",
-      "accessCount": 6,
-      "lastAccessed": 1771150614569,
-      "type": "file"
-    },
-    {
-      "path": "src/hooks/useImageQueue.ts",
-      "accessCount": 6,
-      "lastAccessed": 1771150807694,
+      "lastAccessed": 1771151426343,
       "type": "file"
     },
     {
@@ -181,9 +187,9 @@
       "type": "file"
     },
     {
-      "path": "src/utils/download.ts",
+      "path": "tsconfig.app.json",
       "accessCount": 5,
-      "lastAccessed": 1771150619048,
+      "lastAccessed": 1771151413055,
       "type": "file"
     },
     {
@@ -205,15 +211,45 @@
       "type": "directory"
     },
     {
-      "path": "tsconfig.app.json",
+      "path": "vite.config.ts",
       "accessCount": 4,
-      "lastAccessed": 1771149933802,
+      "lastAccessed": 1771151459229,
       "type": "file"
     },
     {
       "path": "src/constants/index.ts",
-      "accessCount": 2,
-      "lastAccessed": 1771149097135,
+      "accessCount": 4,
+      "lastAccessed": 1771151463668,
+      "type": "file"
+    },
+    {
+      "path": "tsconfig.json",
+      "accessCount": 3,
+      "lastAccessed": 1771151412785,
+      "type": "file"
+    },
+    {
+      "path": "src/lib/image-processor.worker.ts",
+      "accessCount": 3,
+      "lastAccessed": 1771151426051,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ImageUploader.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1771151428385,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 3,
+      "lastAccessed": 1771151464590,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 3,
+      "lastAccessed": 1771151567914,
       "type": "file"
     },
     {
@@ -223,27 +259,15 @@
       "type": "file"
     },
     {
-      "path": "src/components/ImageUploader.tsx",
+      "path": "src/components/Header.tsx",
       "accessCount": 2,
-      "lastAccessed": 1771149101680,
+      "lastAccessed": 1771151431150,
       "type": "file"
     },
     {
-      "path": "vite.config.ts",
+      "path": "docs/TODO.md",
       "accessCount": 2,
-      "lastAccessed": 1771149909305,
-      "type": "file"
-    },
-    {
-      "path": "tsconfig.json",
-      "accessCount": 2,
-      "lastAccessed": 1771149909425,
-      "type": "file"
-    },
-    {
-      "path": "src/lib/image-processor.worker.ts",
-      "accessCount": 2,
-      "lastAccessed": 1771150811379,
+      "lastAccessed": 1771151458712,
       "type": "file"
     },
     {
@@ -277,18 +301,6 @@
       "type": "file"
     },
     {
-      "path": "src/components/Header.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1771149095027,
-      "type": "file"
-    },
-    {
-      "path": "index.html",
-      "accessCount": 1,
-      "lastAccessed": 1771149095765,
-      "type": "file"
-    },
-    {
       "path": "src/lib",
       "accessCount": 1,
       "lastAccessed": 1771149589333,
@@ -298,6 +310,18 @@
       "path": "src/components/ui/separator.tsx",
       "accessCount": 1,
       "lastAccessed": 1771149777909,
+      "type": "file"
+    },
+    {
+      "path": "src/main.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771151423318,
+      "type": "file"
+    },
+    {
+      "path": "src/utils/format.ts",
+      "accessCount": 1,
+      "lastAccessed": 1771151426710,
       "type": "file"
     }
   ],
