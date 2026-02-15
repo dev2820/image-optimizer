@@ -32,12 +32,23 @@ export async function encodeImage(
   format: OutputFormat,
   quality: number,
 ): Promise<ArrayBuffer> {
-  if (format === 'webp') {
-    const { encode } = await import('@jsquash/webp')
-    return encode(imageData, { quality })
-  } else {
-    const { encode } = await import('@jsquash/avif')
-    return encode(imageData, { quality, speed: 6 })
+  switch (format) {
+    case 'webp': {
+      const { encode } = await import('@jsquash/webp')
+      return encode(imageData, { quality })
+    }
+    case 'avif': {
+      const { encode } = await import('@jsquash/avif')
+      return encode(imageData, { quality, speed: 6 })
+    }
+    case 'png': {
+      const { encode } = await import('@jsquash/png')
+      return encode(imageData)
+    }
+    case 'jpeg': {
+      const { encode } = await import('@jsquash/jpeg')
+      return encode(imageData, { quality })
+    }
   }
 }
 

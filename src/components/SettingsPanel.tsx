@@ -44,7 +44,7 @@ export function SettingsPanel({
         <RadioGroup
           value={localSettings.format}
           onValueChange={handleFormatChange}
-          className="flex gap-4"
+          className="flex gap-4 flex-wrap"
         >
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="webp" id="webp" />
@@ -58,28 +58,42 @@ export function SettingsPanel({
               AVIF
             </Label>
           </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="png" id="png" />
+            <Label htmlFor="png" className="cursor-pointer">
+              PNG
+            </Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="jpeg" id="jpeg" />
+            <Label htmlFor="jpeg" className="cursor-pointer">
+              JPEG
+            </Label>
+          </div>
         </RadioGroup>
       </div>
 
-      <div className="space-y-3">
-        <div className="flex items-center justify-between">
-          <Label className="text-sm font-medium">Quality</Label>
-          <span className="text-muted-foreground text-sm">
-            {localSettings.quality}%
-          </span>
+      {localSettings.format !== 'png' && (
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <Label className="text-sm font-medium">Quality</Label>
+            <span className="text-muted-foreground text-sm">
+              {localSettings.quality}%
+            </span>
+          </div>
+          <Slider
+            value={[localSettings.quality]}
+            onValueChange={handleQualityChange}
+            min={1}
+            max={100}
+            step={1}
+          />
+          <div className="text-muted-foreground flex justify-between text-xs">
+            <span>Low</span>
+            <span>High</span>
+          </div>
         </div>
-        <Slider
-          value={[localSettings.quality]}
-          onValueChange={handleQualityChange}
-          min={1}
-          max={100}
-          step={1}
-        />
-        <div className="text-muted-foreground flex justify-between text-xs">
-          <span>Low</span>
-          <span>High</span>
-        </div>
-      </div>
+      )}
 
       <Button onClick={handleApply} disabled={!hasChanges} className="w-full">
         Apply

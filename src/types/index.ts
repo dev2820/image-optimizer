@@ -1,4 +1,4 @@
-export type OutputFormat = 'webp' | 'avif'
+export type OutputFormat = 'webp' | 'avif' | 'png' | 'jpeg'
 
 export interface Settings {
   format: OutputFormat

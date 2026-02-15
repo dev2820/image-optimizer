@@ -10,7 +10,13 @@ export function downloadBuffer(
   filename: string,
   format: OutputFormat,
 ) {
-  const mimeType = format === 'webp' ? 'image/webp' : 'image/avif'
+  const mimeTypes: Record<OutputFormat, string> = {
+    webp: 'image/webp',
+    avif: 'image/avif',
+    png: 'image/png',
+    jpeg: 'image/jpeg',
+  }
+  const mimeType = mimeTypes[format]
   const blob = new Blob([buffer], { type: mimeType })
   saveAs(blob, filename)
 }
