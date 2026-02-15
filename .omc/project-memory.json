@@ -199,6 +199,12 @@
       "type": "file"
     },
     {
+      "path": "README.md",
+      "accessCount": 5,
+      "lastAccessed": 1771151873147,
+      "type": "file"
+    },
+    {
       "path": "eslint.config.js",
       "accessCount": 4,
       "lastAccessed": 1771122810728,
@@ -244,12 +250,6 @@
       "path": "index.html",
       "accessCount": 3,
       "lastAccessed": 1771151464590,
-      "type": "file"
-    },
-    {
-      "path": "README.md",
-      "accessCount": 3,
-      "lastAccessed": 1771151567914,
       "type": "file"
     },
     {

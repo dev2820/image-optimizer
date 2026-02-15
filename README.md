@@ -4,6 +4,8 @@ Free browser-based image compression tool. Optimize unlimited images to WebP, AV
 
 All image processing happens entirely in your browser using WebAssembly. Your files never leave your device.
 
+**https://dev2820.github.io/image-optimizer/**
+
 ## Features
 
 - **Multiple Output Formats** — Convert to WebP, AVIF, JPEG, PNG
