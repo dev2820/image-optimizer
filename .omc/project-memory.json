@@ -140,8 +140,8 @@
     },
     {
       "path": "",
-      "accessCount": 10,
-      "lastAccessed": 1771151459312,
+      "accessCount": 11,
+      "lastAccessed": 1771151766656,
       "type": "directory"
     },
     {
@@ -181,6 +181,12 @@
       "type": "file"
     },
     {
+      "path": "vite.config.ts",
+      "accessCount": 6,
+      "lastAccessed": 1771151790562,
+      "type": "file"
+    },
+    {
       "path": "src/components/DevicePreview.tsx",
       "accessCount": 5,
       "lastAccessed": 1771127380199,
@@ -209,12 +215,6 @@
       "accessCount": 4,
       "lastAccessed": 1771149933789,
       "type": "directory"
-    },
-    {
-      "path": "vite.config.ts",
-      "accessCount": 4,
-      "lastAccessed": 1771151459229,
-      "type": "file"
     },
     {
       "path": "src/constants/index.ts",
