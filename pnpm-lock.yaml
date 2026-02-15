@@ -8,6 +8,9 @@ overrides:
   vite: ^8.0.0-beta.13
 
 dependencies:
+  '@img-comparison-slider/react':
+    specifier: ^8.0.2
+    version: 8.0.2
   '@jsquash/avif':
     specifier: ^2.1.1
     version: 2.1.1
@@ -592,6 +595,12 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
     dev: true
+
+  /@img-comparison-slider/react@8.0.2:
+    resolution: {integrity: sha512-Him0yhbXpMXdnV6R3XE3LiXcMRhSXFMsbk6I7ct5HxO2YpK/BAGz3ub+7+akJRnK2XI7c3vQqvoIE507N1K4SA==}
+    dependencies:
+      img-comparison-slider: 8.0.7
+    dev: false
 
   /@inquirer/ansi@1.0.2:
     resolution: {integrity: sha512-S8qNSZiYzFd0wAcyG5AXCvUHC5Sr7xpZ9wZ2py9XR88jUz8wooStVx5M6dRzczbBWjic9NP7+rY0Xi7qqK/aMQ==}
@@ -3846,6 +3855,10 @@ packages:
     resolution: {integrity: sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==}
     engines: {node: '>= 4'}
     dev: true
+
+  /img-comparison-slider@8.0.7:
+    resolution: {integrity: sha512-BALViPtL2FgcCa9K8KkrmhWuyeDkVu6XVwBoRm9pU8Y6P1rjw31zujuEMBWTz2w6W30zzdQZNTccvg7J9Gf/LQ==}
+    dev: false
 
   /immediate@3.0.6:
     resolution: {integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==}

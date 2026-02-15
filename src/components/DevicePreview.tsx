@@ -43,10 +43,10 @@ export function DevicePreview({ image }: DevicePreviewProps) {
         </TabsList>
       </Tabs>
 
-      <div className="flex justify-center overflow-auto rounded-lg border bg-muted/30 p-4">
+      <div className="overflow-auto rounded-lg border bg-muted/30 p-4">
         <div
-          className="overflow-hidden rounded border bg-white shadow-sm"
-          style={{ width: `${displayWidth}px`, maxWidth: '100%' }}
+          className="mx-auto overflow-hidden rounded border bg-white shadow-sm"
+          style={{ width: `${displayWidth}px` }}
         >
           <img
             src={optimizedUrl}

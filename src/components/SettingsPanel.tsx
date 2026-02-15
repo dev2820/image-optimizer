@@ -1,3 +1,6 @@
+import { useState } from 'react'
+
+import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Slider } from '@/components/ui/slider'
@@ -12,12 +15,22 @@ export function SettingsPanel({
   settings,
   onSettingsChange,
 }: SettingsPanelProps) {
+  const [localSettings, setLocalSettings] = useState<Settings>(settings)
+
+  const hasChanges =
+    localSettings.format !== settings.format ||
+    localSettings.quality !== settings.quality
+
   const handleFormatChange = (value: string) => {
-    onSettingsChange({ ...settings, format: value as OutputFormat })
+    setLocalSettings((prev) => ({ ...prev, format: value as OutputFormat }))
   }
 
   const handleQualityChange = (value: number[]) => {
-    onSettingsChange({ ...settings, quality: value[0] })
+    setLocalSettings((prev) => ({ ...prev, quality: value[0] }))
+  }
+
+  const handleApply = () => {
+    onSettingsChange(localSettings)
   }
 
   return (
@@ -29,7 +42,7 @@ export function SettingsPanel({
       <div className="space-y-3">
         <Label className="text-sm font-medium">Output Format</Label>
         <RadioGroup
-          value={settings.format}
+          value={localSettings.format}
           onValueChange={handleFormatChange}
           className="flex gap-4"
         >
@@ -52,11 +65,11 @@ export function SettingsPanel({
         <div className="flex items-center justify-between">
           <Label className="text-sm font-medium">Quality</Label>
           <span className="text-muted-foreground text-sm">
-            {settings.quality}%
+            {localSettings.quality}%
           </span>
         </div>
         <Slider
-          value={[settings.quality]}
+          value={[localSettings.quality]}
           onValueChange={handleQualityChange}
           min={1}
           max={100}
@@ -67,6 +80,10 @@ export function SettingsPanel({
           <span>High</span>
         </div>
       </div>
+
+      <Button onClick={handleApply} disabled={!hasChanges} className="w-full">
+        적용하기
+      </Button>
     </div>
   )
 }

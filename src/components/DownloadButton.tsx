@@ -1,6 +1,7 @@
 import { ChevronDown, Download } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { ButtonGroup } from '@/components/ui/button-group'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -53,20 +54,15 @@ export function DownloadButton({ image }: DownloadButtonProps) {
   }
 
   return (
-    <div className="flex">
-      <Button
-        size="sm"
-        variant="outline"
-        className="rounded-r-none"
-        onClick={handleDownloadOriginalSize}
-      >
+    <ButtonGroup>
+      <Button size="sm" variant="outline" onClick={handleDownloadOriginalSize}>
         <Download className="mr-1 h-3.5 w-3.5" />
         Download
       </Button>
       {availableSizes.length > 0 && (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button size="sm" variant="outline" className="rounded-l-none border-l-0 px-2">
+            <Button size="sm" variant="outline" className="px-2">
               <ChevronDown className="h-3.5 w-3.5" />
             </Button>
           </DropdownMenuTrigger>
@@ -82,6 +78,6 @@ export function DownloadButton({ image }: DownloadButtonProps) {
           </DropdownMenuContent>
         </DropdownMenu>
       )}
-    </div>
+    </ButtonGroup>
   )
 }

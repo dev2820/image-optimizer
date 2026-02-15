@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+
 import type { ImageEntry } from '@/types'
 
 import { ImageItem } from './ImageItem'
@@ -9,9 +11,12 @@ interface ImageListProps {
 }
 
 export function ImageList({ images, onPreview, onDelete }: ImageListProps) {
-  if (images.length === 0) return null
+  const sorted = useMemo(
+    () => [...images].sort((a, b) => b.createdAt - a.createdAt),
+    [images],
+  )
 
-  const sorted = [...images].sort((a, b) => b.createdAt - a.createdAt)
+  if (images.length === 0) return null
 
   return (
     <div className="space-y-2">

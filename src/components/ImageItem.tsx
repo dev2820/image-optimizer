@@ -1,8 +1,14 @@
-import { Eye, Loader2, Trash2 } from 'lucide-react'
+import { Eye, Trash2 } from 'lucide-react'
 import { useMemo } from 'react'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { Spinner } from '@/components/ui/spinner'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 import type { ImageEntry } from '@/types'
 import { formatFileSize } from '@/utils/format'
 
@@ -75,26 +81,40 @@ export function ImageItem({ image, onPreview, onDelete }: ImageItemProps) {
 
       <div className="flex shrink-0 items-center gap-1">
         {image.status === 'processing' && (
-          <Loader2 className="text-muted-foreground h-5 w-5 animate-spin" />
+          <Spinner className="text-muted-foreground h-5 w-5" />
         )}
 
         {image.status === 'done' && (
           <>
-            <Button size="sm" variant="ghost" onClick={() => onPreview(image)}>
-              <Eye className="h-3.5 w-3.5" />
-            </Button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => onPreview(image)}
+                >
+                  <Eye className="h-3.5 w-3.5" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Preview</TooltipContent>
+            </Tooltip>
             <DownloadButton image={image} />
           </>
         )}
 
-        <Button
-          size="sm"
-          variant="ghost"
-          className="text-muted-foreground hover:text-destructive"
-          onClick={() => onDelete(image.id)}
-        >
-          <Trash2 className="h-3.5 w-3.5" />
-        </Button>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              size="sm"
+              variant="ghost"
+              className="text-muted-foreground hover:text-destructive"
+              onClick={() => onDelete(image.id)}
+            >
+              <Trash2 className="h-3.5 w-3.5" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>Delete</TooltipContent>
+        </Tooltip>
       </div>
     </div>
   )

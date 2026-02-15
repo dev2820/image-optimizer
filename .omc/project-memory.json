@@ -103,9 +103,39 @@
   },
   "hotPaths": [
     {
+      "path": "src/components/ImageItem.tsx",
+      "accessCount": 19,
+      "lastAccessed": 1771126410242,
+      "type": "file"
+    },
+    {
+      "path": "src/components/BeforeAfterSlider.tsx",
+      "accessCount": 13,
+      "lastAccessed": 1771126693172,
+      "type": "file"
+    },
+    {
+      "path": "src/components/PreviewModal.tsx",
+      "accessCount": 12,
+      "lastAccessed": 1771127134707,
+      "type": "file"
+    },
+    {
+      "path": "src/App.tsx",
+      "accessCount": 7,
+      "lastAccessed": 1771127239482,
+      "type": "file"
+    },
+    {
       "path": "eslint.config.js",
       "accessCount": 4,
       "lastAccessed": 1771122810728,
+      "type": "file"
+    },
+    {
+      "path": "src/components/DownloadButton.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1771126205160,
       "type": "file"
     },
     {
@@ -127,15 +157,21 @@
       "type": "file"
     },
     {
-      "path": "tsconfig.app.json",
-      "accessCount": 2,
-      "lastAccessed": 1771120529767,
+      "path": "src/components/DevicePreview.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1771125063196,
       "type": "file"
     },
     {
-      "path": "src/App.tsx",
+      "path": "src/components/SettingsPanel.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1771127059182,
+      "type": "file"
+    },
+    {
+      "path": "tsconfig.app.json",
       "accessCount": 2,
-      "lastAccessed": 1771123149276,
+      "lastAccessed": 1771120529767,
       "type": "file"
     },
     {
@@ -187,45 +223,27 @@
       "type": "file"
     },
     {
-      "path": "src/components/SettingsPanel.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1771122676477,
-      "type": "file"
-    },
-    {
-      "path": "src/components/DownloadButton.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1771122684071,
-      "type": "file"
-    },
-    {
-      "path": "src/components/ImageItem.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1771122743852,
-      "type": "file"
-    },
-    {
       "path": "src/components/ImageList.tsx",
       "accessCount": 1,
       "lastAccessed": 1771122744993,
       "type": "file"
     },
     {
-      "path": "src/components/BeforeAfterSlider.tsx",
+      "path": "src/components/ui/spinner.tsx",
       "accessCount": 1,
-      "lastAccessed": 1771122746215,
+      "lastAccessed": 1771125952844,
       "type": "file"
     },
     {
-      "path": "src/components/DevicePreview.tsx",
+      "path": "src",
       "accessCount": 1,
-      "lastAccessed": 1771123068537,
-      "type": "file"
+      "lastAccessed": 1771126134837,
+      "type": "directory"
     },
     {
-      "path": "src/components/PreviewModal.tsx",
+      "path": "src/components/ui/button-group.tsx",
       "accessCount": 1,
-      "lastAccessed": 1771123098064,
+      "lastAccessed": 1771126182505,
       "type": "file"
     }
   ],

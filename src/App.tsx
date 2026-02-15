@@ -6,12 +6,14 @@ import { ImageUploader } from '@/components/ImageUploader'
 import { PreviewModal } from '@/components/PreviewModal'
 import { SettingsPanel } from '@/components/SettingsPanel'
 import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { DEFAULT_SETTINGS } from '@/constants'
 import { processImage } from '@/lib/image-processor'
 import type { ImageEntry, Settings } from '@/types'
 import { downloadAllAsZip } from '@/utils/download'
+
+import { Footer } from './components/Footer'
+import { Header } from './components/Header'
 
 function App() {
   const [images, setImages] = useState<ImageEntry[]>([])
@@ -152,54 +154,43 @@ function App() {
 
   return (
     <TooltipProvider>
-      <div className="flex min-h-screen flex-col">
-        <header className="border-b px-6 py-4">
-          <h1 className="text-xl font-bold">Image Optimizer</h1>
-          <p className="text-muted-foreground text-sm">
-            Client-side image optimization powered by Squoosh WASM
-          </p>
-        </header>
-
-        <div className="flex flex-1">
-          <main className="flex-1 space-y-4 p-6">
+      <div className="flex h-screen flex-col">
+        <Header />
+        <div className="flex min-h-0 flex-1">
+          <main className="flex min-h-0 min-w-0 flex-1 flex-col gap-4 p-6">
             <ImageUploader onUpload={handleUpload} />
-            <ImageList
-              images={images}
-              onPreview={handlePreview}
-              onDelete={handleDelete}
-            />
+            <div className="min-h-0 flex-1 overflow-y-auto">
+              <ImageList
+                images={images}
+                onPreview={handlePreview}
+                onDelete={handleDelete}
+              />
+            </div>
           </main>
-
-          <aside className="w-72 border-l p-6">
+          <aside className="flex-none w-72 border-l p-6">
             <SettingsPanel
               settings={settings}
               onSettingsChange={handleSettingsChange}
             />
           </aside>
         </div>
-
-        {images.length > 0 && (
-          <>
-            <Separator />
-            <footer className="flex items-center justify-center px-6 py-4">
-              <Button
-                onClick={handleDownloadAll}
-                disabled={doneCount === 0}
-                size="lg"
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Download All as ZIP ({doneCount} images)
-              </Button>
-            </footer>
-          </>
-        )}
-
-        <PreviewModal
-          image={previewImage}
-          open={previewImage !== null}
-          onClose={handleClosePreview}
-        />
+        <div className="flex-none flex items-center justify-center px-6 py-4 border-t">
+          <Button
+            onClick={handleDownloadAll}
+            disabled={doneCount === 0}
+            size="lg"
+          >
+            <Download className="mr-2 h-4 w-4" />
+            Download All as ZIP ({doneCount} images)
+          </Button>
+        </div>
       </div>
+      <PreviewModal
+        image={previewImage}
+        open={previewImage !== null}
+        onClose={handleClosePreview}
+      />
+      <Footer />
     </TooltipProvider>
   )
 }
