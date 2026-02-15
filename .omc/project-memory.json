@@ -158,8 +158,8 @@
     },
     {
       "path": "package.json",
-      "accessCount": 7,
-      "lastAccessed": 1771151412186,
+      "accessCount": 8,
+      "lastAccessed": 1771152306590,
       "type": "file"
     },
     {
@@ -230,8 +230,8 @@
     },
     {
       "path": "tsconfig.json",
-      "accessCount": 3,
-      "lastAccessed": 1771151412785,
+      "accessCount": 4,
+      "lastAccessed": 1771152306987,
       "type": "file"
     },
     {
@@ -328,6 +328,12 @@
       "path": "LICENSE",
       "accessCount": 1,
       "lastAccessed": 1771151712947,
+      "type": "file"
+    },
+    {
+      "path": "public/AGENTS.md",
+      "accessCount": 1,
+      "lastAccessed": 1771152357723,
       "type": "file"
     }
   ],
