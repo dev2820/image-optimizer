@@ -1,5 +1,5 @@
 import { Download, Settings as SettingsIcon } from 'lucide-react'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { ImageList } from '@/components/ImageList'
 import { ImageUploader } from '@/components/ImageUploader'
@@ -28,10 +28,15 @@ function App() {
   const [settingsOpen, setSettingsOpen] = useState(false)
 
   const settingsRef = useRef<Settings>(settings)
-  settingsRef.current = settings
-
   const imagesRef = useRef<ImageEntry[]>(images)
-  imagesRef.current = images
+
+  useEffect(() => {
+    settingsRef.current = settings
+  }, [settings])
+
+  useEffect(() => {
+    imagesRef.current = images
+  }, [images])
 
   const { enqueue, clearQueue, removeFromQueue } = useImageQueue(
     setImages,
