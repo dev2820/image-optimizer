@@ -25,7 +25,7 @@ export function BeforeAfterSlider({
           className="block max-h-[60vh] max-w-full object-contain"
         />
       </ImgComparisonSlider>
-      <div className="text-muted-foreground mt-2 flex justify-between text-xs">
+      <div className="w-full text-muted-foreground mt-2 flex justify-between text-xs">
         <span>Original</span>
         <span>Optimized</span>
       </div>

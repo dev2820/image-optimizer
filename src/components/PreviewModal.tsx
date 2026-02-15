@@ -4,15 +4,15 @@ import { useMemo } from 'react'
 import {
   Dialog,
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import type { ImageEntry } from '@/types'
 import { formatFileSize } from '@/utils/format'
 
 import { BeforeAfterSlider } from './BeforeAfterSlider'
-import { DevicePreview } from './DevicePreview'
+import { DownloadButton } from './DownloadButton'
 
 interface PreviewModalProps {
   image: ImageEntry | null
@@ -65,21 +65,15 @@ export function PreviewModal({ image, open, onClose }: PreviewModalProps) {
           </div>
         </DialogHeader>
 
-        <Tabs defaultValue="compare" className="mt-4 flex min-h-0 flex-1 flex-col">
-          <TabsList className="flex-none">
-            <TabsTrigger value="compare">Before / After</TabsTrigger>
-            <TabsTrigger value="device">Device Preview</TabsTrigger>
-          </TabsList>
-          <TabsContent value="compare" className="mt-4 min-h-0 flex-1 overflow-auto">
-            <BeforeAfterSlider
-              originalUrl={originalUrl}
-              optimizedUrl={optimizedUrl}
-            />
-          </TabsContent>
-          <TabsContent value="device" className="mt-4 min-h-0 flex-1 overflow-auto">
-            <DevicePreview image={image} />
-          </TabsContent>
-        </Tabs>
+        <div className="mt-4 min-h-0 flex-1 overflow-auto">
+          <BeforeAfterSlider
+            originalUrl={originalUrl}
+            optimizedUrl={optimizedUrl}
+          />
+        </div>
+        <DialogFooter>
+          <DownloadButton image={image} />
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   )

@@ -13,6 +13,7 @@ import type { ImageEntry } from '@/types'
 import { formatFileSize } from '@/utils/format'
 
 import { DownloadButton } from './DownloadButton'
+import { Skeleton } from './ui/skeleton'
 
 interface ImageItemProps {
   image: ImageEntry
@@ -47,9 +48,13 @@ export function ImageItem({ image, onPreview, onDelete }: ImageItemProps) {
           <Badge variant="secondary" className="text-xs">
             {image.originalFormat.replace('image/', '').toUpperCase()}
           </Badge>
-          <span className="text-muted-foreground text-xs">
-            {image.originalWidth} x {image.originalHeight}
-          </span>
+          {image.originalWidth <= 0 || image.originalHeight <= 0 ? (
+            <Skeleton className="h-5 w-20 rounded" />
+          ) : (
+            <span className="text-muted-foreground text-xs">
+              {image.originalWidth} x {image.originalHeight}
+            </span>
+          )}
         </div>
       </div>
 

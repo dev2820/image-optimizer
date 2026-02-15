@@ -109,21 +109,27 @@
       "type": "file"
     },
     {
+      "path": "src/components/PreviewModal.tsx",
+      "accessCount": 17,
+      "lastAccessed": 1771145758002,
+      "type": "file"
+    },
+    {
       "path": "src/components/BeforeAfterSlider.tsx",
       "accessCount": 13,
       "lastAccessed": 1771126693172,
       "type": "file"
     },
     {
-      "path": "src/components/PreviewModal.tsx",
-      "accessCount": 12,
-      "lastAccessed": 1771127134707,
-      "type": "file"
-    },
-    {
       "path": "src/App.tsx",
       "accessCount": 7,
       "lastAccessed": 1771127239482,
+      "type": "file"
+    },
+    {
+      "path": "src/components/DevicePreview.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1771127380199,
       "type": "file"
     },
     {
@@ -136,6 +142,12 @@
       "path": "src/components/DownloadButton.tsx",
       "accessCount": 4,
       "lastAccessed": 1771126205160,
+      "type": "file"
+    },
+    {
+      "path": "docs/spec.md",
+      "accessCount": 4,
+      "lastAccessed": 1771145783171,
       "type": "file"
     },
     {
@@ -154,12 +166,6 @@
       "path": "src/lib/image-processor.ts",
       "accessCount": 3,
       "lastAccessed": 1771123054972,
-      "type": "file"
-    },
-    {
-      "path": "src/components/DevicePreview.tsx",
-      "accessCount": 3,
-      "lastAccessed": 1771125063196,
       "type": "file"
     },
     {

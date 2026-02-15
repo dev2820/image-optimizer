@@ -163,9 +163,7 @@ Naming convention: `{basename}-opt.{format}` (e.g., `photo-opt.webp`)
 
 ### 7.6 `src/components/PreviewModal.tsx`
 - shadcn Dialog (large/fullscreen)
-- Two sections via Tabs:
-  1. **Before/After comparison** - `BeforeAfterSlider` component
-  2. **Device preview** - `DevicePreview` component
+- **Before/After comparison** - `BeforeAfterSlider` component
 - Shows image info (original size vs optimized size, savings %)
 
 ### 7.7 `src/components/BeforeAfterSlider.tsx`
@@ -174,12 +172,6 @@ Naming convention: `{basename}-opt.{format}` (e.g., `photo-opt.webp`)
 - Left side: original image (clipped by divider position)
 - Right side: optimized image
 - Labels: "Original" / "Optimized"
-
-### 7.8 `src/components/DevicePreview.tsx`
-- Tab buttons: Mobile | Tablet | Laptop | Desktop
-- Shows optimized image constrained to selected device width
-- Device frame/container to simulate viewport size
-- Center-aligned with max-width matching device
 
 ## Step 8: App.tsx Rewrite
 
@@ -212,7 +204,7 @@ Key logic:
 5. Adjust quality slider, verify size changes
 6. Download individual image (original size) - check filename is `*-opt.webp`
 7. Download resized image via dropdown
-8. Preview modal: verify before/after slider and device previews
+8. Preview modal: verify before/after slider
 9. Upload multiple images, click "Download All" - verify ZIP download
 10. Delete an image, verify removal
 11. `pnpm build` - builds without errors
