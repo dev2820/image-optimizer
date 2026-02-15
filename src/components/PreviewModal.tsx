@@ -56,7 +56,7 @@ export function PreviewModal({ image, open, onClose }: PreviewModalProps) {
                 <>
                   <ArrowRightIcon size={16} />
                   <span>Optimized: {formatFileSize(image.optimizedSize)}</span>
-                  <span className="font-bold text-green-600">
+                  <span className="font-bold text-green-600 dark:text-green-400">
                     ({-savings}%)
                   </span>
                 </>

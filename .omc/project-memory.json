@@ -104,26 +104,26 @@
   "hotPaths": [
     {
       "path": "src/components/ImageItem.tsx",
-      "accessCount": 46,
-      "lastAccessed": 1771151428625,
+      "accessCount": 51,
+      "lastAccessed": 1771152810075,
       "type": "file"
     },
     {
       "path": "src/components/Footer.tsx",
-      "accessCount": 24,
-      "lastAccessed": 1771151431432,
+      "accessCount": 26,
+      "lastAccessed": 1771152635631,
       "type": "file"
     },
     {
       "path": "src/App.tsx",
-      "accessCount": 24,
-      "lastAccessed": 1771152109621,
+      "accessCount": 25,
+      "lastAccessed": 1771152597799,
       "type": "file"
     },
     {
       "path": "src/components/PreviewModal.tsx",
-      "accessCount": 19,
-      "lastAccessed": 1771151430914,
+      "accessCount": 22,
+      "lastAccessed": 1771152813445,
       "type": "file"
     },
     {
@@ -169,21 +169,27 @@
       "type": "file"
     },
     {
-      "path": "src/components/DownloadButton.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1771149106497,
+      "path": "vite.config.ts",
+      "accessCount": 7,
+      "lastAccessed": 1771152609655,
       "type": "file"
+    },
+    {
+      "path": "src/components/DownloadButton.tsx",
+      "accessCount": 7,
+      "lastAccessed": 1771152610021,
+      "type": "file"
+    },
+    {
+      "path": "src",
+      "accessCount": 7,
+      "lastAccessed": 1771152797327,
+      "type": "directory"
     },
     {
       "path": "src/utils/download.ts",
       "accessCount": 6,
       "lastAccessed": 1771151426343,
-      "type": "file"
-    },
-    {
-      "path": "vite.config.ts",
-      "accessCount": 6,
-      "lastAccessed": 1771151790562,
       "type": "file"
     },
     {
@@ -205,6 +211,18 @@
       "type": "file"
     },
     {
+      "path": "src/components/ImageUploader.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1771152636506,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 5,
+      "lastAccessed": 1771152686140,
+      "type": "file"
+    },
+    {
       "path": "eslint.config.js",
       "accessCount": 4,
       "lastAccessed": 1771122810728,
@@ -215,12 +233,6 @@
       "accessCount": 4,
       "lastAccessed": 1771145783171,
       "type": "file"
-    },
-    {
-      "path": "src",
-      "accessCount": 4,
-      "lastAccessed": 1771149933789,
-      "type": "directory"
     },
     {
       "path": "src/constants/index.ts",
@@ -235,21 +247,15 @@
       "type": "file"
     },
     {
+      "path": "src/components/Header.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1771152635173,
+      "type": "file"
+    },
+    {
       "path": "src/lib/image-processor.worker.ts",
       "accessCount": 3,
       "lastAccessed": 1771151426051,
-      "type": "file"
-    },
-    {
-      "path": "src/components/ImageUploader.tsx",
-      "accessCount": 3,
-      "lastAccessed": 1771151428385,
-      "type": "file"
-    },
-    {
-      "path": "index.html",
-      "accessCount": 3,
-      "lastAccessed": 1771151464590,
       "type": "file"
     },
     {
@@ -259,15 +265,27 @@
       "type": "file"
     },
     {
-      "path": "src/components/Header.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1771151431150,
-      "type": "file"
-    },
-    {
       "path": "docs/TODO.md",
       "accessCount": 2,
       "lastAccessed": 1771151458712,
+      "type": "file"
+    },
+    {
+      "path": "src/main.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1771152600924,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ui/spinner.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1771152604828,
+      "type": "file"
+    },
+    {
+      "path": "src/index.css",
+      "accessCount": 2,
+      "lastAccessed": 1771152662932,
       "type": "file"
     },
     {
@@ -289,12 +307,6 @@
       "type": "file"
     },
     {
-      "path": "src/components/ui/spinner.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1771125952844,
-      "type": "file"
-    },
-    {
       "path": "src/components/ui/button-group.tsx",
       "accessCount": 1,
       "lastAccessed": 1771126182505,
@@ -313,12 +325,6 @@
       "type": "file"
     },
     {
-      "path": "src/main.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1771151423318,
-      "type": "file"
-    },
-    {
       "path": "src/utils/format.ts",
       "accessCount": 1,
       "lastAccessed": 1771151426710,
@@ -334,6 +340,24 @@
       "path": "public/AGENTS.md",
       "accessCount": 1,
       "lastAccessed": 1771152357723,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ui/button.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771152604256,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ui/dialog.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771152606712,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ui/dropdown-menu.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1771152610218,
       "type": "file"
     }
   ],

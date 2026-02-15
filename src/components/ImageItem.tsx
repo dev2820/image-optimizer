@@ -62,14 +62,14 @@ export function ImageItem({ image, onPreview, onDelete }: ImageItemProps) {
                     {formatFileSize(image.originalSize)}
                   </span>
                   <span className="text-muted-foreground text-xs">&rarr;</span>
-                  <span className="text-xs text-green-600">
+                  <span className="text-xs text-green-600 dark:text-green-400">
                     {formatFileSize(image.optimizedSize)}
                   </span>
                 </div>
                 {savings !== null && savings > 0 && (
                   <Badge
                     variant="outline"
-                    className="flex-none border-green-200 bg-green-50 text-xs text-green-700"
+                    className="flex-none border-green-200 bg-green-50 text-xs text-green-700 dark:border-green-700 dark:bg-green-900/30 dark:text-green-400"
                   >
                     -{savings}%
                   </Badge>
@@ -81,7 +81,7 @@ export function ImageItem({ image, onPreview, onDelete }: ImageItemProps) {
       </div>
 
       {image.status === 'error' && (
-        <span className="shrink-0 text-xs text-red-500">{image.error}</span>
+        <span className="shrink-0 text-xs text-red-500 dark:text-red-400">{image.error}</span>
       )}
 
       {/* Action buttons - desktop */}
