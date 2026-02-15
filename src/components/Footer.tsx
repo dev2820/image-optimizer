@@ -1,5 +1,7 @@
 import { FileDown, Lock, SlidersHorizontal } from 'lucide-react'
 
+import Logo from '@/assets/logo.png'
+
 import { Button } from './ui/button'
 import { Separator } from './ui/separator'
 
@@ -24,7 +26,14 @@ const AppDescription = () => {
       <h2 className="mt-16 text-5xl font-semibold text-foreground">
         Image Optimizer
       </h2>
-      <p className="text-xl mt-8 text-foreground/80">
+      <img
+        src={Logo}
+        alt="image optimizer"
+        width="200"
+        height="200"
+        className="self-center mt-4"
+      />
+      <p className="text-xl mt-4 text-foreground/80">
         Free browser-based image compression tool for bloggers, content
         creators, and web SEO practitioners. Optimize unlimited images to WebP,
         AVIF, JPEG, and PNG — no upload limits, no servers, no sign-up required.
