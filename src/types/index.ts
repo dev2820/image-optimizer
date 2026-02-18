@@ -1,9 +1,6 @@
-export type OutputFormat = 'webp' | 'avif' | 'png' | 'jpeg'
-
-export interface Settings {
-  format: OutputFormat
-  quality: number
-}
+import { type OutputFormat } from './format'
+export * from './format'
+export * from './setting'
 
 export interface ImageEntry {
   id: string
