@@ -1,5 +1,7 @@
 # Image Optimizer
 
+<img src="./public/logo.png" width="256" height="256"/>
+
 Free browser-based image compression tool. Optimize unlimited images to WebP, AVIF, JPEG, and PNG — no upload limits, no servers, no sign-up required.
 
 All image processing happens entirely in your browser using WebAssembly. Your files never leave your device.

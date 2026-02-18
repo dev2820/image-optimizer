@@ -1,7 +1,5 @@
 import { FileDown, Lock, SlidersHorizontal } from 'lucide-react'
 
-import Logo from '@/assets/logo.png'
-
 import { Button } from './ui/button'
 import { Separator } from './ui/separator'
 
@@ -27,7 +25,7 @@ const AppDescription = () => {
         Image Optimizer
       </h2>
       <img
-        src={Logo}
+        src={`${import.meta.env.BASE_URL}logo.png`}
         alt="image optimizer"
         width="200"
         height="200"

@@ -133,6 +133,12 @@
       "type": "file"
     },
     {
+      "path": "index.html",
+      "accessCount": 12,
+      "lastAccessed": 1771154160480,
+      "type": "file"
+    },
+    {
       "path": "src/lib/image-processor.ts",
       "accessCount": 11,
       "lastAccessed": 1771151464224,
@@ -143,12 +149,6 @@
       "accessCount": 11,
       "lastAccessed": 1771151766656,
       "type": "directory"
-    },
-    {
-      "path": "index.html",
-      "accessCount": 11,
-      "lastAccessed": 1771154067615,
-      "type": "file"
     },
     {
       "path": "src/components/SettingsPanel.tsx",
