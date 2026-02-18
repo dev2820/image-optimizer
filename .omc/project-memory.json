@@ -187,6 +187,24 @@
       "type": "file"
     },
     {
+      "path": "eslint.config.js",
+      "accessCount": 2,
+      "lastAccessed": 1771397940149,
+      "type": "file"
+    },
+    {
+      "path": "src/contexts/ImagesContext.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1771397981350,
+      "type": "file"
+    },
+    {
+      "path": "src/contexts/SettingsContext.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1771398009325,
+      "type": "file"
+    },
+    {
       "path": "src/types/index.ts",
       "accessCount": 1,
       "lastAccessed": 1771395250729,
@@ -215,19 +233,7 @@
       "accessCount": 1,
       "lastAccessed": 1771395257349,
       "type": "file"
-    },
-    {
-      "path": "src/contexts/SettingsContext.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1771395695048,
-      "type": "file"
-    },
-    {
-      "path": "src/contexts/ImagesContext.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1771397011063,
-      "type": "file"
     }
   ],
   "userDirectives": []
-}
+}}

@@ -1,9 +1,8 @@
 import { Download, Settings as SettingsIcon } from 'lucide-react'
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 
 import { ImageList } from '@/components/ImageList'
 import { ImageUploader } from '@/components/ImageUploader'
-import { PreviewModal } from '@/components/PreviewModal'
 import { SettingsPanel } from '@/components/SettingsPanel'
 import { Button } from '@/components/ui/button'
 import {
@@ -15,7 +14,6 @@ import {
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { ImagesProvider, useImages } from '@/contexts/ImagesContext'
 import { SettingsProvider, useSettings } from '@/contexts/SettingsContext'
-import type { ImageEntry } from '@/types'
 
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
@@ -31,19 +29,9 @@ export default function App() {
 }
 
 function AppContent() {
-  const [previewImage, setPreviewImage] = useState<ImageEntry | null>(null)
-  const [settingsOpen, setSettingsOpen] = useState(false)
-
   const { settings, updateSettings } = useSettings()
-  const { images, doneCount, upload, deleteImage, downloadAll } = useImages()
 
-  const handlePreview = useCallback((image: ImageEntry) => {
-    setPreviewImage(image)
-  }, [])
-
-  const handleClosePreview = useCallback(() => {
-    setPreviewImage(null)
-  }, [])
+  const { images, upload, deleteImage } = useImages()
 
   return (
     <TooltipProvider>
@@ -53,11 +41,7 @@ function AppContent() {
           <main className="flex min-h-0 min-w-0 flex-1 flex-col gap-4 p-6">
             <ImageUploader onUpload={upload} />
             <div className="min-h-0 flex-1 overflow-y-auto">
-              <ImageList
-                images={images}
-                onPreview={handlePreview}
-                onDelete={deleteImage}
-              />
+              <ImageList images={images} onDelete={deleteImage} />
             </div>
           </main>
           <aside className="hidden md:block flex-none w-72 border-l p-6">
@@ -68,26 +52,42 @@ function AppContent() {
           </aside>
         </div>
         <div className="flex-none flex items-center justify-center gap-3 px-6 py-4 border-t">
-          <Button onClick={downloadAll} disabled={doneCount === 0} size="lg">
-            <Download className="mr-2 h-4 w-4" />
-            Download All ({doneCount} images)
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="md:hidden"
-            onClick={() => setSettingsOpen(true)}
-          >
-            <SettingsIcon className="mr-2 h-4 w-4" />
-            Settings
-          </Button>
+          <DownloadAllButton />
+          <MobileSettingButton />
         </div>
       </div>
-      <PreviewModal
-        image={previewImage}
-        open={previewImage !== null}
-        onClose={handleClosePreview}
-      />
+      <Footer />
+    </TooltipProvider>
+  )
+}
+
+function DownloadAllButton() {
+  const { doneCount, downloadAll } = useImages()
+
+  return (
+    <Button onClick={downloadAll} disabled={doneCount === 0} size="lg">
+      <Download className="mr-2 h-4 w-4" />
+      Download All ({doneCount} images)
+    </Button>
+  )
+}
+
+function MobileSettingButton() {
+  const [settingsOpen, setSettingsOpen] = useState(false)
+  const { settings, updateSettings } = useSettings()
+
+  return (
+    <>
+      <Button
+        variant="outline"
+        size="lg"
+        className="md:hidden"
+        onClick={() => setSettingsOpen(true)}
+      >
+        <SettingsIcon className="mr-2 h-4 w-4" />
+        Settings
+      </Button>
+      {/* 모바일 Setting 패널 */}
       <Drawer open={settingsOpen} onOpenChange={setSettingsOpen}>
         <DrawerContent>
           <DrawerHeader>
@@ -104,7 +104,6 @@ function AppContent() {
           </div>
         </DrawerContent>
       </Drawer>
-      <Footer />
-    </TooltipProvider>
+    </>
   )
 }

@@ -3,7 +3,6 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useRef,
   useState,
 } from 'react'
 
@@ -25,50 +24,48 @@ const ImagesContext = createContext<ImagesContextValue | null>(null)
 
 export function ImagesProvider({ children }: { children: React.ReactNode }) {
   const [images, setImages] = useState<ImageEntry[]>([])
-  const { settings } = useSettings()
-
-  const prevSettingsRef = useRef(settings)
+  const { settings, subscribe } = useSettings()
 
   const { enqueue, clearQueue, removeFromQueue } = useImageQueue(setImages)
 
-  // Reprocess images when settings change
+  // Reprocess images when settings change via subscription
+  // (callback fires within the event handler context, not synchronously in an effect)
   useEffect(() => {
-    if (prevSettingsRef.current === settings) return
-    prevSettingsRef.current = settings
+    return subscribe((newSettings) => {
+      clearQueue()
 
-    clearQueue()
+      const toEnqueue: { id: string; file: File; settings: Settings }[] = []
 
-    const toEnqueue: { id: string; file: File; settings: Settings }[] = []
+      setImages((prev) => {
+        const toReprocess = prev.filter(
+          (img) =>
+            img.status === 'done' ||
+            img.status === 'queued' ||
+            img.status === 'processing',
+        )
 
-    setImages((prev) => {
-      const toReprocess = prev.filter(
-        (img) =>
-          img.status === 'done' ||
-          img.status === 'queued' ||
-          img.status === 'processing',
-      )
+        if (toReprocess.length === 0) return prev
 
-      if (toReprocess.length === 0) return prev
+        toEnqueue.push(
+          ...toReprocess.map((img) => ({
+            id: img.id,
+            file: img.file,
+            settings: newSettings,
+          })),
+        )
 
-      toEnqueue.push(
-        ...toReprocess.map((img) => ({
-          id: img.id,
-          file: img.file,
-          settings,
-        })),
-      )
+        return prev.map((img) =>
+          toReprocess.some((r) => r.id === img.id)
+            ? { ...img, status: 'queued' as const }
+            : img,
+        )
+      })
 
-      return prev.map((img) =>
-        toReprocess.some((r) => r.id === img.id)
-          ? { ...img, status: 'queued' as const }
-          : img,
-      )
+      if (toEnqueue.length > 0) {
+        enqueue(toEnqueue)
+      }
     })
-
-    if (toEnqueue.length > 0) {
-      enqueue(toEnqueue)
-    }
-  }, [settings, clearQueue, enqueue])
+  }, [subscribe, clearQueue, enqueue])
 
   const upload = useCallback(
     (files: File[]) => {

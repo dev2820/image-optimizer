@@ -28,11 +28,6 @@ export default defineConfig([
     rules: {
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
-    },
-  },
-  {
-    files: ['src/components/ui/**/*.{ts,tsx}'],
-    rules: {
       'react-refresh/only-export-components': 'off',
     },
   },
